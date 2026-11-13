@@ -1,4 +1,10 @@
 # ⚽ Gestão de Pagamentos de Jogadores (RAP + Fiori Elements)
+![SAP S/4HANA](https://img.shields.io/badge/SAP_S%2F4HANA-2023-0A6ED1?logo=sap&logoColor=white)
+![ABAP RAP](https://img.shields.io/badge/ABAP-RAP-0A6ED1?logo=sap&logoColor=white)
+![ABAP CDS](https://img.shields.io/badge/ABAP-CDS-0A6ED1?logo=sap&logoColor=white)
+![OData V4](https://img.shields.io/badge/OData-V4-008000)
+![SAP Fiori Elements](https://img.shields.io/badge/SAP-Fiori_Elements-0A6ED1?logo=sap&logoColor=white)
+![abapGit](https://img.shields.io/badge/Version_Control-abapGit-orange)
 
 Aplicação desenvolvida com **ABAP RESTful Application Programming Model (RAP)** para controlar os pagamentos mensais de jogadores de um grupo esportivo. O usuário cadastra jogadores, abre uma **competência** (mês/ano) e lança os pagamentos de cada jogador dentro dela, com acompanhamento do total arrecadado no período.
 
