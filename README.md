@@ -2,16 +2,34 @@
 
 Aplicação desenvolvida com **ABAP RESTful Application Programming Model (RAP)** para controlar os pagamentos mensais de jogadores de um grupo esportivo. O usuário cadastra jogadores, abre uma **competência** (mês/ano) e lança os pagamentos de cada jogador dentro dela, com acompanhamento do total arrecadado no período.
 
-A interface é gerada via **Fiori Elements** (List Report + Object Page), totalmente guiada por anotações CDS.
+## 🖥️ Demonstração da aplicação
+A aplicação utiliza SAP Fiori Elements, com interfaces baseadas em List Report e Object Page, proporcionando uma experiência integrada para o gerenciamento de jogadores, competências e pagamentos.
 
+
+### 👥 Cadastro e Gerenciamento de Jogadores
+
+Cadastro de jogadores com informações pessoais, contato, endereço e fotografia, incluindo validações implementadas na camada de comportamento RAP.
+
+**Validações de dados**
+
+Demonstração das validações de campos obrigatórios e consistência dos formatos de e-mail e telefone.
+
+<img width="1090" height="294" alt="image" src="https://github.com/user-attachments/assets/59f09a21-525c-4c5f-8abd-f4f20106a679" />
+
+**Object Page do Jogador**
+
+Visualização e manutenção dos dados cadastrais, com organização por grupos de informações e exibição da fotografia do jogador.
 <img width="1065" height="278" alt="image" src="https://github.com/user-attachments/assets/42e6f0cd-67a5-4f7d-944d-1b0ab7a72c74" />
 
+### 📅 Gestão de Competências
 
+Visualização das competências cadastradas, com acompanhamento dos valores arrecadados em cada período.
+<img width="1050" height="198" alt="image" src="https://github.com/user-attachments/assets/b10109f1-c851-49b2-bad7-409c994434c3" />
 
-<!-- Troque pelos seus prints -->
-<!-- ![List Report de Competências](docs/img/competencia-list.png) -->
-<!-- ![Object Page da Competência](docs/img/competencia-object-page.png) -->
-<!-- ![Cadastro de Jogador](docs/img/jogador-object-page.png) -->
+### 💰 Detalhes da Competência e Pagamentos
+
+Consulta dos dados da competência, acompanhamento do total arrecadado e gerenciamento dos pagamentos vinculados aos jogadores.
+<img width="1077" height="344" alt="image" src="https://github.com/user-attachments/assets/3895c836-26d1-42f0-b23a-93d44ab2bde2" />
 
 ---
 
