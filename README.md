@@ -4,6 +4,10 @@ Aplicação desenvolvida com **ABAP RESTful Application Programming Model (RAP)*
 
 A interface é gerada via **Fiori Elements** (List Report + Object Page), totalmente guiada por anotações CDS.
 
+<img width="1065" height="278" alt="image" src="https://github.com/user-attachments/assets/42e6f0cd-67a5-4f7d-944d-1b0ab7a72c74" />
+
+
+
 <!-- Troque pelos seus prints -->
 <!-- ![List Report de Competências](docs/img/competencia-list.png) -->
 <!-- ![Object Page da Competência](docs/img/competencia-object-page.png) -->
