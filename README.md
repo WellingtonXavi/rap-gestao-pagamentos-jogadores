@@ -182,7 +182,8 @@ erDiagram
 
 Desenvolvedor SAP ABAP | SAP RAP | SAP Fiori
 
-[LinkedIn](www.linkedin.com/in/wellington-xavier-dos-santos) ·
+
+[LinkedIn](https://www.linkedin.com/in/wellington-xavier-dos-santos)
 [GitHub](https://github.com/WellingtonXavi)
 
 ---
