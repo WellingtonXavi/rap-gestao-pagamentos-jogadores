@@ -1,0 +1,75 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Pagamento',
+    typeNamePlural: 'Pagamentos',
+    imageUrl: 'Foto',
+    title: { type: #STANDARD, value: 'ApelidoJogador' },
+     description: {
+      type: #STANDARD,
+      value: 'NomeCompleto'
+    }
+  }
+}
+
+@UI.presentationVariant: [{
+  sortOrder: [{
+    by: 'ApelidoJogador',
+    direction: #ASC
+  }]
+}]
+annotate entity ZC_PAGAMENTO with
+{
+  @UI.facet: [
+    {
+      id: 'PagamentoHeader',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Detalhes do Pagamento',
+      position: 10
+    }
+  ]
+
+  @UI.hidden: true
+  PagamentoId;
+
+  @UI.hidden: true
+  CompetenciaId;
+
+  --  @UI.identification: [ { position: 10, label: 'Nome' } ]
+  --  NomeCompleto;
+
+  @UI.lineItem: [ { position: 10, label: 'Jogador', criticality: 'CorPagamento' , criticalityRepresentation: #WITHOUT_ICON } ]
+  --  @UI.identification: [ { position: 11, label: 'Apelido' } ]
+  ApelidoJogador;
+  
+  
+  @EndUserText.label: 'Foto do jogador'
+  Foto;
+
+
+
+
+  @UI.identification: [ { position: 20, label: 'Jogador' } ]
+  @UI.selectionField: [ { position: 10 } ]
+  @UI.textArrangement: #TEXT_ONLY
+  JogadorId;
+
+
+
+  @UI.lineItem: [ { position: 30, label: 'Tipo de Lançamento', criticality: 'CorPagamento' , criticalityRepresentation: #WITHOUT_ICON} ]
+  @UI.identification: [ { position: 30, label: 'Tipo de Lançamento' } ]
+  @UI.textArrangement: #TEXT_ONLY
+  TipoLancamento;
+
+  @UI.lineItem: [ { position: 40, label: 'Valor (R$)', criticality: 'CorPagamento' , criticalityRepresentation: #WITHOUT_ICON} ]
+  @UI.identification: [ { position: 40, label: 'Valor (R$)' } ]
+
+  Valor;
+  
+
+
+  @UI.lineItem: [ { position: 50, label: 'Data de Lançamento', criticality: 'CorPagamento' , criticalityRepresentation: #WITHOUT_ICON } ]
+  @UI.identification: [ { position: 50, label: 'Data de Lançamento' } ]
+  DataLancamento;
+}

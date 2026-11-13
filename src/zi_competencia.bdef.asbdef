@@ -1,0 +1,112 @@
+managed implementation in class zbp_i_competencia unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_COMPETENCIA alias Competencia
+persistent table zcompetencia
+draft table zcompetencia_d
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+
+early numbering
+
+
+{
+  create;
+  update;
+  delete;
+
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare { validation validarDuplicidade; validation validarAno; validation Pagamento~dadosObrigatorios; }
+
+  field ( readonly ) CompetenciaId, DataInicio, DataFim, CriadoEm;
+
+  field ( mandatory ) Mes, Ano;
+
+  // LIBERA A CRIAÇÃO DE PAGAMENTOS DENTRO DA COMPETÊNCIA
+  association _Pagamento { create; with draft; }
+
+  determination calcularDatas on save { create; update; }
+
+  determination preencherCriadoEm on save { create; }
+
+  determination setDefaultsCompetencia on modify { create; }
+
+  validation validarDuplicidade on save { create; field Mes, Ano; }
+
+  validation validarAno on save { create; field Ano; }
+
+
+
+
+  mapping for zcompetencia
+    {
+      Ano           = ano;
+      CompetenciaId = competencia_id;
+      CriadoEm      = criado_em;
+      DataFim       = data_fim;
+      DataInicio    = data_inicio;
+      LastChangedAt = last_changed_at;
+      Mes           = mes;
+    }
+
+
+
+}
+
+
+
+
+define behavior for ZI_PAGAMENTO alias Pagamento
+persistent table zpagamento
+draft table zpagamento_d
+lock dependent by _Competencia
+authorization dependent by _Competencia
+
+early numbering
+{
+
+
+  update;
+  delete;
+
+  field ( readonly ) PagamentoId, CompetenciaId;
+
+
+  association _Competencia { with draft; }
+
+
+
+  validation dadosObrigatorios on save { create; update; field JogadorId, DataLancamento; }
+
+
+
+  mapping for zpagamento
+    {
+      CompetenciaId  = competencia_id;
+      DataLancamento = data_lancamento;
+      JogadorId      = jogador_id;
+      PagamentoId    = pagamento_id;
+      TipoLancamento = tipo_lancamento;
+      Valor          = valor;
+      LastChangedAt  = last_changed_at;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

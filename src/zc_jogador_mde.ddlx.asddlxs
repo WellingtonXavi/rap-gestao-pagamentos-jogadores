@@ -1,0 +1,170 @@
+@Metadata.layer: #CORE
+@UI: 
+{
+        
+  headerInfo: 
+  {
+   typeName: 'Jogador',
+   typeNamePlural: 'Jogadores',
+   imageUrl: 'Foto',        
+   title: 
+   {
+     type: #STANDARD,
+     value: 'NomeCompleto'
+    }
+   },
+   
+   presentationVariant: [{
+    sortOrder: [{ by: 'NomeCompleto', direction: #ASC }], 
+    visualizations: [{ type: #AS_LINEITEM }]
+  }]
+}
+
+  
+
+
+
+
+annotate entity ZC_JOGADOR with 
+{
+
+@UI.facet: [
+  {
+    
+    
+    
+      id: 'SecaoResumo',
+      type: #COLLECTION,
+      label: 'Informação Jogador',
+      position: 10
+    },
+    
+     {
+      id: 'DadosPessoais',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Dados Pessoais',
+      parentId: 'SecaoResumo',
+      targetQualifier: 'GroupDados',
+      position: 10
+    },
+    
+    
+    
+    {
+      id: 'Contato',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Contato',
+      parentId: 'SecaoResumo',
+      targetQualifier: 'GroupContato',
+      position: 10
+    },
+    
+       {
+      id: 'Endereco',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Endereço',
+      parentId: 'SecaoResumo',
+      targetQualifier: 'GroupEndereco',
+      position: 10
+    },
+    
+       {
+      id: 'DadosCadastrais',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Dados Cadastrais',
+      parentId: 'SecaoResumo',
+      targetQualifier: 'GroupCadastro',
+      position: 10
+    }
+    
+    
+  ]
+ 
+  
+  @EndUserText.label: 'Nome completo'
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupDados', position: 10 }]
+  @UI.selectionField: [{ position: 10 }]
+  NomeCompleto;
+
+  @EndUserText.label: 'Apelido'
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupDados', position: 20 }]
+  @UI.selectionField: [{ position: 20 }]
+  Apelido;
+
+  @EndUserText.label: 'Telefone / WhatsApp'
+  @UI.identification: [{ position: 30 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupContato', position: 10 }]
+  Telefone;
+
+  @EndUserText.label: 'E-mail'
+  @UI.identification: [{ position: 40 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupContato', position: 20 }]
+  Email;
+
+  @EndUserText.label: 'Data de nascimento'
+  @UI.identification: [{ position: 50 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupDados', position: 30 }]
+  DataNascimento;
+
+  @EndUserText.label: 'CEP'
+  @UI.identification: [{ position: 60 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupEndereco', position: 40 }]
+  CEP;
+
+  @EndUserText.label: 'UF'
+  @UI.identification: [{ position: 70 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupEndereco', position: 70 }]
+  UF;
+
+  @EndUserText.label: 'Cidade'
+  @UI.identification: [{ position: 80 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupEndereco', position: 60 }]
+  Cidade;
+
+  @EndUserText.label: 'Bairro'
+  @UI.identification: [{ position: 90 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupEndereco', position: 50 }]
+  Bairro;
+
+  @EndUserText.label: 'Logradouro'
+  @UI.identification: [{ position: 100 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupEndereco', position: 10 }]
+  Logradouro;
+
+  @EndUserText.label: 'Número'
+  @UI.identification: [{ position: 110 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupEndereco', position: 20 }]
+  Numero;
+
+  @EndUserText.label: 'Complemento'
+  @UI.identification: [{ position: 120 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupEndereco', position: 30 }]
+  Complemento;
+  
+  @EndUserText.label: 'Data de cadastro'
+  @UI.identification: [{ position: 150 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupCadastro', position: 10 }]
+  DataCadastro;
+
+  @EndUserText.label: 'Ativo'
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 130 }]
+  @UI.fieldGroup: [{ qualifier: 'GroupCadastro', position: 20 }]
+  Ativo;
+  
+  @EndUserText.label: 'Foto do jogador'
+
+@UI.identification: [{ position: 5 }]
+@UI.fieldGroup: [{ qualifier: 'GroupDados', position: 40 }]
+  
+  Foto; // <--- Renderiza o componente de upload/exibição de imagem binária
+    
+}

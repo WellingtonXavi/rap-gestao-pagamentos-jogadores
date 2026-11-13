@@ -1,0 +1,89 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Competência',
+    typeNamePlural: 'Competências',
+    title: { type: #STANDARD, value: 'CompetenciaFormatada' }
+    
+  }
+}
+annotate entity ZC_COMPETENCIA   with 
+{
+    
+// ------------------------------------------------------
+  // LAYOUT DOS FACETS (SEÇÕES DA OBJECT PAGE)
+  // ------------------------------------------------------
+   @UI.facet: [
+    {
+      id: 'CompetenciaHeader',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Dados da  Competência',
+      position: 10
+    },
+    
+    {
+      id: 'PagamentosList',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,        // Renderiza a tabela do filho
+      label: 'Lista de Pagamentos',
+      targetElement: '_Pagamento',      // Nome da associação em ZC_COMPETENCIA
+      position: 20
+    },
+    
+    {
+      id: 'HeaderTotal',
+      purpose: #HEADER,
+      type: #DATAPOINT_REFERENCE,
+      targetQualifier: 'TotalDataPoint',
+      position: 10
+    }
+    
+  ]
+  
+  
+  
+  // ------------------------------------------------------
+  // CAMPOS DA COMPETÊNCIA (CABEÇALHO)
+  // ------------------------------------------------------
+  
+  @UI.hidden: true
+  CompetenciaId;
+
+  @UI.lineItem: [{ position: 10, label: 'Mês' }]
+  @UI.identification: [{ position: 10, label: 'Mês' }]
+  @UI.selectionField: [{ position: 10 }]
+ 
+  Mes;
+
+  @UI.lineItem: [{ position: 20, label: 'Ano' }]
+  @UI.identification: [{ position: 20, label: 'Ano' }]
+  @UI.selectionField: [{ position: 20 }]
+  Ano;
+
+  @UI.lineItem: [{ position: 30, label: 'Data Início' }]
+  @UI.identification: [{ position: 30, label: 'Data Início' }]
+  DataInicio;
+
+  @UI.lineItem: [{ position: 40, label: 'Data Fim' }]
+  @UI.identification: [{ position: 40, label: 'Data Fim' }]
+  DataFim;
+  
+  @UI.hidden: true
+  CriadoEm;
+  
+  @UI.hidden: true
+  LastChangedAt;
+  
+  @EndUserText.label: 'Competência'
+  CompetenciaFormatada;
+  
+
+  
+  @UI.dataPoint: { qualifier: 'TotalDataPoint', title: 'Valor Total:', criticality: 'CorTotalPagamento' }
+  @UI.lineItem: [{ position: 50, label: 'Total Pagamentos' }]
+  TotalPagamentos;
+  
+
+    
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Serviço de Gestão de Jogadores'
+define service ZUI_JOGADOR {
+  expose ZC_JOGADOR     as Jogadores;
+  expose ZC_COMPETENCIA as Competencia;
+  expose ZC_PAGAMENTO   as Pagamento;
+}

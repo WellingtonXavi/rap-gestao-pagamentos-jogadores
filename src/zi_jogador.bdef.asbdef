@@ -1,0 +1,60 @@
+managed implementation in class zbp_i_jogador unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_JOGADOR alias Jogador
+persistent table zjogador
+draft table zjogador_d
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+
+early numbering
+
+
+{
+  create;
+  update;
+  delete;
+
+  // Ações obrigatórias de Draft
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft action Activate;
+  draft determine action Prepare { validation validarDadosObrigatorio; validation validarFormatoEmailTelefone; }
+
+  field ( readonly ) JogadorId, DataCadastro;
+  field ( mandatory ) NomeCompleto, Telefone, Email;
+
+  determination setDefaults on modify { create; }
+
+  validation validarDadosObrigatorio on save { create; update;}
+
+  validation validarFormatoEmailTelefone on save { create; update;}
+
+
+  mapping for zjogador
+    {
+      JogadorId      = jogador_id;
+      NomeCompleto   = nome_completo;
+      Apelido        = apelido;
+      Telefone       = telefone;
+      Email          = email;
+      DataCadastro   = data_cadastro;
+      DataNascimento = data_nascimento;
+      cep            = cep;
+      uf             = uf;
+      Cidade         = cidade;
+      Bairro         = bairro;
+      Logradouro     = logradouro;
+      Numero         = numero;
+      Complemento    = complemento;
+      Ativo          = ativo;
+      foto           = foto;
+      FotoMimeType   = foto_mimetype;
+      FotoFileName   = foto_filename;
+      LastChangedAt  = last_changed_at;
+    }
+
+}
